@@ -32,7 +32,7 @@ const calendar = new Calendar(calendarEl, {
                 // .post("/schedule-add", {
 
                 // 本番環境のエンドポイント
-                .post("/schedule-add", {
+                .post("my-calender/calendar/schedule-add", {
                     start_date: info.start.valueOf(),
                     end_date: info.end.valueOf(),
                     event_name: eventName,
@@ -61,7 +61,7 @@ const calendar = new Calendar(calendarEl, {
             // .post("/schedule-get", {
 
             // 本番環境のエンドポイント
-            .post("/schedule-get", {
+            .post("/my-calender/calendar/schedule-get", {
                 start_date: info.start.valueOf(),
                 end_date: info.end.valueOf(),
             })
