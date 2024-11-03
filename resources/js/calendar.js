@@ -6,6 +6,7 @@ import listPlugin from "@fullcalendar/list";
 import axios from 'axios';
 
 const calendarEl = document.getElementById("calendar");
+const baseURL = process.env.MIX_APP_URL || 'http://localhost';
 
 const calendar = new Calendar(calendarEl, {
     plugins: [interactionPlugin, dayGridPlugin, timeGridPlugin, listPlugin],
@@ -32,7 +33,7 @@ const calendar = new Calendar(calendarEl, {
                 // .post("/schedule-add", {
 
                 // 本番環境のエンドポイント
-                .post("/my-calender/calendar/schedule-add", {
+                .post(`${baseURL}/calendar/schedule-add`, {
                     start_date: info.start.valueOf(),
                     end_date: info.end.valueOf(),
                     event_name: eventName,
@@ -61,7 +62,7 @@ const calendar = new Calendar(calendarEl, {
             // .post("/schedule-get", {
 
             // 本番環境のエンドポイント
-            .post("/my-calender/calendar/schedule-get", {
+            .post(`${baseURL}/calender/schedule-get`, {
                 start_date: info.start.valueOf(),
                 end_date: info.end.valueOf(),
             })

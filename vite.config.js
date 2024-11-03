@@ -8,4 +8,9 @@ export default defineConfig({
             refresh: true,
         }),
     ],
+    define: {
+        'process.env': {
+            MIX_APP_URL: process.env.MIX_APP_URL,
+        },
+    },
 });
