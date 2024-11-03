@@ -28,7 +28,11 @@ const calendar = new Calendar(calendarEl, {
         if (eventName) {
             // Laravelの登録処理の呼び出し
             axios
-                .post("/schedule-add", {
+                // localhostのエンドポイント
+                // .post("/schedule-add", {
+
+                // 本番環境のエンドポイント
+                .post("/my-calender/calendar/schedule-add", {
                     start_date: info.start.valueOf(),
                     end_date: info.end.valueOf(),
                     event_name: eventName,
@@ -53,7 +57,11 @@ const calendar = new Calendar(calendarEl, {
     events: function (info, successCallback, failureCallback) {
         // Laravelのイベント取得処理の呼び出し
         axios
-            .post("/schedule-get", {
+            // localhostのエンドポイント
+            // .post("/schedule-get", {
+
+            // 本番環境のエンドポイント
+            .post("/my-calender/calendar/schedule-get", {
                 start_date: info.start.valueOf(),
                 end_date: info.end.valueOf(),
             })
